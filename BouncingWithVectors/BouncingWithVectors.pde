@@ -10,7 +10,8 @@ void setup() {
   //initialize variables
   loc = new PVector(width/2, height/2);
   diam = 80;
-  vel = new PVector(random(-5,5),random(-5,5));
+  vel = PVector.random2D();
+  vel.mult(10);
 }
 
 void draw() {
@@ -19,7 +20,7 @@ void draw() {
 
   //draw ball
   ellipse(loc.x, loc.y, diam, diam);
-
+  loc.add(vel);
   //add velocity to position
   loc.x += vel.x;
   loc.y += vel.y;
